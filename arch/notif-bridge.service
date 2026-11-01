@@ -1,0 +1,11 @@
+[Unit]
+Description=Notif Bridge receiver
+
+[Service]
+# Crie ~/.config/notif-bridge.env com: NOTIF_BRIDGE_TOKEN=<token>
+EnvironmentFile=%h/.config/notif-bridge.env
+ExecStart=/usr/bin/python %h/.local/share/notif-bridge/receiver.py
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
