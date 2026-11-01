@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.os.Build
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.MediaType.Companion.toMediaType
@@ -33,6 +34,7 @@ object Sender {
                 .put("app", app)
                 .put("title", title)
                 .put("text", text)
+                .put("device", "${Build.MANUFACTURER} ${Build.MODEL}")
                 .toString()
                 .toRequestBody(json)
             Request.Builder()
